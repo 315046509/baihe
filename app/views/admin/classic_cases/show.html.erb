@@ -1,0 +1,35 @@
+<script>
+    <% if !flash[:error_msg].nil? && !flash[:error_msg].blank?%>
+    alert('<%=flash[:error_msg]%>');
+    <% end%>
+</script>
+<div>
+  <ul class="breadcrumb">
+    <li>
+      <a href="#">Home</a> <span class="divider">/</span>
+    </li>
+    <li>
+      <a href="<%= admin_classic_cases_path %>">经典案例</a> <span class="divider">/</span>
+    </li>
+    <li>
+      经典案例
+    </li>
+  </ul>
+</div>
+<div class="row-fluid sortable">
+  <div class="box span12">
+    <div class="box-header well" data-original-title>
+      <h2><i class="icon-list-alt"></i>经典案例</h2>
+    </div>
+    <div class="box-content">
+      <div id="content" class="span10" style="padding: 20px">
+        <%= @roll.title %>
+        <br/>
+        <%= image_tag @roll.avatar.url(:zhengchang) %>
+        <br/>
+        <%= @roll.description %>
+        <!--/span-->
+      </div>
+    </div>
+  </div>
+</div><!--/row-->

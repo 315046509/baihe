@@ -1,0 +1,30 @@
+<div>
+  <ul class="breadcrumb">
+    <li>
+      <a href=#">Home</a> <span class="divider">/</span>
+    </li>
+    <li>
+      <a href="<%= admin_journalisms_path %>">新闻管理</a> <span class="divider">/</span>
+    </li>
+    <li>
+      新闻详细
+    </li>
+  </ul>
+</div>
+<div class="row-fluid sortable">
+  <div class="box span12">
+    <div class="box-content">
+      <p>
+        新闻分类：<%= @journalism.question_category_name %>
+      </p><br/>
+      <%= image_tag @roll.avatar.url(:zhengchang) %>
+      <br/>
+      <p>
+        新闻内容：<%= @journalism.descrpiton.html_safe %>
+      </p>
+
+      <br/><br/>
+    </div>
+  </div>
+  <!--/span-->
+</div><!--/row-->

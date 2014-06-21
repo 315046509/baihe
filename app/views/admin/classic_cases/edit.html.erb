@@ -1,0 +1,60 @@
+<script>
+    <% if !flash[:error_msg].nil? && !flash[:error_msg].blank?%>
+    alert('<%=flash[:error_msg]%>');
+    <% end%>
+</script>
+<div>
+  <ul class="breadcrumb">
+    <li>
+      <a href="#">Home</a> <span class="divider">/</span>
+    </li>
+    <li>
+      <a href="<%= admin_classic_cases_path %>">经典案例</a> <span class="divider">/</span>
+    </li>
+    <li>
+      修改案例
+    </li>
+  </ul>
+</div>
+<div class="row-fluid sortable ui-sortable">
+  <div class="box span12">
+    <div class="box-content">
+      <div id="content" class="span10" style="padding: 20px">
+        <%= form_for @case, :url => admin_classic_case_path, :method => "put", :html => {:id => "classic_cases", :class => "form-horizontal"} do |f| %>
+            <legend>修改案例</legend>
+            <%= f.label "案例标题：" %>
+            <%= f.text_field :title %>
+            <%= f.label "案例详细：" %>
+            <%= f.text_area :description, :style => "width:500px;height:150px" %>
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">完成提交</button>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <!--/span-->
+</div>
+<script src="/admin/js/jquery.validate.js"></script>
+<script>
+    $().ready(function () {
+        $("#classic_cases").validate({
+            rules: {
+                "case[title]": {
+                    required: true
+                },
+                "case[description]": {
+                    required: true
+                }
+            },
+            messages: {
+                "case[title]": {
+                    required: "请填写案例标题"
+                },
+                "case[description]": {
+                    required: "请填写案例详细"
+                }
+            }
+        });
+    });
+</script>

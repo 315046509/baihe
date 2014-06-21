@@ -1,0 +1,17 @@
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  username: root
+  password: "shichao"
+  socket: /var/run/mysqld/mysqld.sock
+
+development:
+  <<: *default
+  database: baihe
+
+production:
+  <<: *default
+  database: baihe
+  username: baihe
+  password: <%= ENV['BAIHE_DATABASE_PASSWORD'] %>

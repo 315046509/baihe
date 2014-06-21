@@ -1,0 +1,91 @@
+<script>
+    <% if !flash[:error_msg].nil? && !flash[:error_msg].blank?%>
+    alert('<%=flash[:error_msg]%>');
+    <% end%>
+</script>
+<div>
+  <ul class="breadcrumb">
+    <li>
+      <a href="#">Home</a> <span class="divider">/</span>
+    </li>
+    <li>
+      <a href="<%= admin_classic_cases_path %>">经典案例</a> <span class="divider">/</span>
+    </li>
+    <li>
+      添加案例
+    </li>
+  </ul>
+</div>
+<div class="row-fluid sortable">
+  <div class="box span12">
+    <div class="box-content">
+      <div id="content" class="span10" style="padding: 20px">
+        <%= form_for @roll, :url => admin_classic_cases_path(@roll), :method => :post, :html => {:id => "classic_cases"} do |f| %>
+            <fieldset>
+              <legend>添加案例</legend>
+              <div class="field">
+                <span>案例标题：</span>
+                <%= f.text_field :title %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <span>选择图片：</span>
+                <%= f.file_field :avatar %>
+              </div>
+              <br/>
+
+              <div class="field">
+                <span>案例详细：</span>
+                <%= f.text_area :description, :style => "width:500px;height:150px" %>
+              </div>
+              </br>
+
+              <div class="form-actions">
+                <%= f.submit "完成提交", :class => "btn btn-primary" %>
+              </div>
+            </fieldset>
+        <% end %>
+        <!--/span-->
+      </div>
+    </div>
+  </div>
+</div><!--/row-->
+<script src="/admin/js/jquery.validate.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(function () {
+            $("#classic_cases").validate({
+                rules: {
+                    "case[title]": {
+                        required: true
+                    },
+                    "case[avatar]": {
+                        required: true,
+                        accept: "jpg|png"
+                    },
+                    "case[description]": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "case[title]": {
+                        required: "请填写案例标题"
+                    },
+                    "case[avatar]": {
+                        required: "请上传图片",
+                        accept: "图片类型必须是png或jpg"
+                    },
+                    "case[description]": {
+                        required: "请填写案例详细"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent());
+                }
+            });
+        });
+    });
+</script>
+
+

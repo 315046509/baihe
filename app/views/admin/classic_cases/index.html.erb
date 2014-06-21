@@ -1,0 +1,80 @@
+<script>
+    <% if !flash[:error_msg].nil? && !flash[:error_msg].blank?%>
+    alert('<%=flash[:error_msg]%>');
+    <% end%>
+</script>
+<div>
+  <ul class="breadcrumb">
+    <li>
+      <a href="#">Home</a> <span class="divider">/</span>
+    </li>
+    <li>
+      <a href="<%= admin_classic_cases_path %>">经典案例</a> <span class="divider">/</span>
+    </li>
+    <li>
+      经典案例列表
+    </li>
+  </ul>
+</div>
+<div class="row-fluid sortable">
+  <div class="box span12">
+    <div class="box-header well" data-original-title>
+      <h2><i class="icon-list-alt"></i> 经典案例列表</h2>
+    </div>
+    <div class="box-content">
+      <table class="table table-striped table-bordered bootstrap-datatable datatable">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>案例名称</th>
+          <th>案例图片</th>
+          <th>案例内容</th>
+          <th>创建时间</th>
+          <th>查看</th>
+          <th>修改</th>
+          <th>删除</th>
+        </tr>
+        </thead>
+        <tbody>
+        <div class="form-actions">
+          <a class="btn btn-primary" href="<%= new_admin_classic_case_path %>">
+            添加案例
+          </a>
+        </div>
+        <% @roll.each do |roll| %>
+            <tr>
+              <td><%= roll.id %></td>
+              <td><%= roll.title %></td>
+              <td><%= image_tag roll.avatar.url(:thumb) %></td>
+              <td><%= truncate_u(roll.description, 10) %></td>
+              <td class="center"><%= my_datetime_format roll.created_at %></td>
+              <td>
+                <a class="btn btn-success" href="<%= admin_classic_case_path(roll) %>">
+                  <i class="icon-zoom-in icon-white"></i>
+                  查看
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-info" href="<%= edit_admin_classic_case_path(roll) %>">
+                  <i class="icon-edit icon-white"></i>
+                  修改
+                </a>
+              </td>
+              <td>
+                <a class="btn btn-danger" data-confirm="您确定要删除吗?" data-method="delete" href="<%= admin_classic_case_path(roll.id) %>">
+                  <i class="icon-trash icon-white"></i>
+                  删除
+                </a>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+      <div class="pagination pagination-centered">
+        <ul><%= paginate @roll %></ul>
+      </div>
+    </div>
+  </div>
+  <!--/span-->
+
+</div><!--/row-->
