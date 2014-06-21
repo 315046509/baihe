@@ -19,8 +19,8 @@ class Admin::ClassicCasesController < Admin::MainController
         description = params[:case][:description]
         imagename = avatar.original_filename
         avatar.original_filename = Time.now.strftime("%Y%m%d%h%m%s")<<rand(99999).to_s<<imagename[imagename.length-4, 4]
-        if !avatar.blank? && !title.blank? && !description.blank? && !question_category_id.blank?
-          rc = Case.create(:avatar => avatar, :title => title, :description => description, :question_category_id => question_category_id)
+        if !avatar.blank? && !title.blank? && !description.blank?
+          rc = Case.create(:avatar => avatar, :title => title, :description => description)
           if rc.valid?
           else
             msg = ""

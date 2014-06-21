@@ -3,7 +3,7 @@ class Case < ActiveRecord::Base
   validates :description, :presence => {:message => "案例内容不能为空！"}
 
   attr_accessor :avatar
-  has_attached_file :avatar, :styles => {:index => "300x180", :thumb => "68x48#"}, :default_url => "/images/:style/missing.png",
+  has_attached_file :avatar, :styles => {:index => "300x180#", :thumb => "68x48#"}, :default_url => "/images/:style/missing.png",
                     :url => "/case/:id_partition/:style/:filename"
   validates_attachment_size :avatar, :less_than => 2.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/png', 'image/x-png', 'image/jpeg', 'image/pjpeg', 'image/jpg']

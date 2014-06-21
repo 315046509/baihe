@@ -23,12 +23,14 @@
     </div>
     <div class="box-content">
       <%= form_for @journalism, :url => admin_journalism_path, :method => "put", :html => {:id => "verifytitle", :class => "form-horizontal"} do |f| %>
-          <legend>新闻修改</legend>
-          新闻标题：<%= @journalism.title %>
+          <legend>新闻修改</legend>\
+          <%= f.label "新闻标题：" %>
+          <%= f.text_field :title %>
           <br/>
-          新闻分类：<%= @journalism.question_category_name %>
+          <%= image_tag @journalism.avatar.url(:thumb) %>
+          <br/>
           <%= f.label "新闻内容：" %>
-          <%= f.cktext_area :descrpiton %>
+          <%= f.text_area :descrpiton, :style => "width:500px;height:150px" %>
           <div class="form-actions">
             <button type="submit" class="btn btn-primary">完成提交</button>
           </div>
@@ -37,26 +39,31 @@
   </div>
   <!--/span-->
 </div>
-<script>
-    $().ready(function () {
-        $("#verifytitle").validate({
-            rules: {
-                "journalism[descrption]": {
-                    required: true
-                }
-            },
-            messages: {
-                "journalism[descrption]": {
-                    required: "内容不能为空"
-                }
-            }
-        });
-    });
+<script src="/admin/js/jquery.validate.js"></script>
+<script type="text/javascript">
     $(document).ready(function () {
-        $('form[data-remote]').bind('ajax:before', function () {
-            for (instance in CKEDITOR.instances) {
-                CKEDITOR.instances[instance].updateElement();
-            }
+        $(function () {
+            $("#classic_cases").validate({
+                rules: {
+                    "case[title]": {
+                        required: true
+                    },
+                    "case[descrption]": {
+                        required: true
+                    }
+                },
+                messages: {
+                    "case[title]": {
+                        required: "请填写标题"
+                    },
+                    "case[descrption]": {
+                        required: "内容不能为空"
+                    }
+                },
+                errorPlacement: function (error, element) {
+                    error.appendTo(element.parent());
+                }
+            });
         });
     });
 </script>

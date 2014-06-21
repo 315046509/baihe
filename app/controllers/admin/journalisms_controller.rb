@@ -15,11 +15,10 @@ class Admin::JournalismsController < Admin::MainController
         avatar = params[:journalism][:avatar]
         title = params[:journalism][:title]
         descrpiton = params[:journalism][:descrpiton]
-        question_category_id = [:journalism][:question_category_id]
         imagename = avatar.original_filename
         avatar.original_filename = Time.now.strftime("%Y%m%d%h%m%s")<<rand(99999).to_s<<imagename[imagename.length-4, 4]
-        if !avatar.blank? && !title.blank? && !description.blank? && !question_category_id.blank?
-          rc = Case.create(:avatar => avatar, :title => title, :descrpiton => descrpiton, :question_category_id => question_category_id)
+        if !avatar.blank? && !title.blank? && !descrpiton.blank?
+          rc = Journalism.create(:avatar => avatar, :title => title, :descrpiton => descrpiton)
           if rc.valid?
           else
             msg = ""
@@ -27,7 +26,7 @@ class Admin::JournalismsController < Admin::MainController
             flash[:error]= msg
             redirect_to :back and return
           end
-          redirect_to admin_journalisms_path and return
+          redirect_to admin_classic_cases_path and return
         else
           flash[:error_msg]="添加失败，请检查添加项是否有空值！"
           redirect_to :back and return
@@ -43,6 +42,7 @@ class Admin::JournalismsController < Admin::MainController
   def update
     @category = Journalism.find(params[:id])
     update_category = @category.update_attributes(
+        :title => params[:journalism][:title],
         :descrpiton => params[:journalism][:descrpiton]
     )
     if update_category
@@ -60,8 +60,8 @@ class Admin::JournalismsController < Admin::MainController
 
   #   删除
   def destroy
-    @journalism = Journalism.find params[:id]
-    Journalism.deletefile(@journalism.id)
+    @journalism = Case.find params[:id]
+    Case.deletefile(@journalism.id)
     @journalism.destroy
     redirect_to admin_journalisms_path and return
   end
