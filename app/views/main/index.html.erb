@@ -357,15 +357,17 @@
     <div class="title"></div>
 
     <div class="works_page" id="works_page" style="display: block;">
-      <a href="javascript:;" class="selected"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a>
-      <a href="javascript:;"></a>
+
+      <span id="news_page" class="" style="display: inline;">
+        <a href="javascript:;" class="selected"><%= paginate @roll %></a>
+      </span>
     </div>
 
     <a href="javascript:;" class="prev disabled" id="works_prev" style="display: block;"></a>
 
     <a href="javascript:;" class="next" id="works_next" style="display: block;"></a>
 
-    <a class="works_more" href="#" target="_blank" title="更多作品"></a>
+    <a class="works_more" href="#" title="百合"></a>
 
     <div class="works_main">
 
@@ -423,10 +425,17 @@
         <div class="srv_pro" id="srv_pro" style="width: 980px;">
           <div class="title"></div>
           <div class="con">
-            <div class="con_1"></div>
-            <div class="con_2"></div>
-            <div class="con_3"></div>
-            <div class="con_4"></div>
+            <div class="con_1">道闸广告：精品锁住消费人群，百分百的到达率，独家画面24小时曝光，强制控制你的眼球！把广告做到家的好媒体！</div>
+
+            <div class="con_2">
+              提高市场占有率的有效行为，一份可执行、可操作、创意突出的活动策划案，可有效提升企业的知名度及品牌美誉度。
+            </div>
+
+            <div class="con_3">
+              <a href="http://www.pxwgj.com" target="_blank">微站时代来临：智能手机、平板电脑。2014您的网站触手可及了吗？</a>
+            </div>
+
+            <div class="con_4">百合传媒：承接各种演出活动，为企业策划承办各类礼仪庆典。做出你真正想要的才叫完美！</div>
           </div>
         </div>
         <div class="srv_line" id="srv_line" style="width: 980px;">
@@ -444,14 +453,11 @@
   <div class="container">
     <div class="title"></div>
     <div class="news_page">
-
       <a href="javascript:;" id="news_prev" class="disabled" style="display: inline;">&lt; PREV</a>&nbsp;&nbsp;
       <span id="news_page" class="" style="display: inline;">
-        <a href="javascript:;" class="selected"><%= paginate @roll %></a>
-        <a href="javascript:;">2</a>
+        <a href="javascript:;" class="selected"><%= paginate @journalisms %></a>
       </span>
       <a href="javascript:;" id="news_next" class="" style="display: inline;">NEXT &gt;</a>
-
     </div>
 
     <div class="news_main">

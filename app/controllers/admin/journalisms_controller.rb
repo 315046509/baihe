@@ -26,7 +26,7 @@ class Admin::JournalismsController < Admin::MainController
             flash[:error]= msg
             redirect_to :back and return
           end
-          redirect_to admin_classic_cases_path and return
+          redirect_to admin_journalisms_path and return
         else
           flash[:error_msg]="添加失败，请检查添加项是否有空值！"
           redirect_to :back and return
