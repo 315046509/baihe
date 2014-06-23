@@ -22,7 +22,7 @@
       <h2><i class="icon-edit"></i> 新闻修改</h2>
     </div>
     <div class="box-content">
-      <%= form_for @journalism, :url => admin_journalism_path, :method => "put", :html => {:id => "verifytitle", :class => "form-horizontal"} do |f| %>
+      <%= form_for @journalism, :url => admin_journalism_path, :method => :put, :html => {:id => "verifytitle"} do |f| %>
           <legend>新闻修改</legend>\
           <%= f.label "新闻标题：" %>
           <%= f.text_field :title %>
@@ -43,27 +43,42 @@
 <script type="text/javascript">
     $(document).ready(function () {
         $(function () {
-            $("#classic_cases").validate({
+            $("#verifytitle").validate({
                 rules: {
-                    "case[title]": {
+                    "journalism[title]": {
                         required: true
                     },
-                    "case[descrption]": {
+                    "journalism[descrpiton]": {
                         required: true
                     }
                 },
                 messages: {
-                    "case[title]": {
+                    "journalism[title]": {
                         required: "请填写标题"
                     },
-                    "case[descrption]": {
+                    "journalism[descrpiton]": {
                         required: "内容不能为空"
                     }
                 },
+                errorClass: "error",
+                highlight: function (element, errorClass) {
+                    $(element).parent().parent().addClass(errorClass);
+                },
+                unhighlight: function (element, errorClass) {
+                    $(element).parent().parent().removeClass(errorClass);
+                },
                 errorPlacement: function (error, element) {
                     error.appendTo(element.parent());
-                }
+                },
+                errorElement: "span"
             });
+        });
+    });
+    $(document).ready(function () {
+        $('form[data-remote]').bind('ajax:before', function () {
+            for (instance in CKEDITOR.instances) {
+                CKEDITOR.instances[instance].updateElement();
+            }
         });
     });
 </script>
