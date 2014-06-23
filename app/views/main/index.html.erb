@@ -93,17 +93,17 @@
     <a href="#" class="logo"></a>
     <ul class="menu" id="nav">
       <li class="mu_home current">
-        <a href="127.0.0.1:3000/#home" title="网站首页" class="selected"><span>HOME</span><em>网站首页</em></a></li>
+        <a href="http://www.jlsgg.com/#home" title="网站首页" class="selected"><span>HOME</span><em>网站首页</em></a></li>
       <li class="pipe"></li>
-      <li class="mu_about"><a href="127.0.0.1:3000/#about" title="关于我们"><span>ABOUT US</span><em>关于我们</em></a></li>
+      <li class="mu_about"><a href="http://www.jlsgg.com/#about" title="关于我们"><span>ABOUT US</span><em>关于我们</em></a></li>
       <li class="pipe"></li>
-      <li class="mu_works"><a href="127.0.0.1:3000/#works" title="作品展示"><span>WORKS</span><em>作品展示</em></a></li>
+      <li class="mu_works"><a href="http://www.jlsgg.com/#works" title="作品展示"><span>WORKS</span><em>作品展示</em></a></li>
       <li class="pipe"></li>
-      <li class="mu_service"><a href="127.0.0.1:3000/#service" title="服务报价"><span>SERVICE</span><em>服务报价</em></a></li>
+      <li class="mu_service"><a href="http://www.jlsgg.com/#service" title="服务报价"><span>SERVICE</span><em>服务报价</em></a></li>
       <li class="pipe"></li>
-      <li class="mu_news"><a href="127.0.0.1:3000/#news" title="新闻中心"><span>NEWS</span><em>新闻中心</em></a></li>
+      <li class="mu_news"><a href="http://www.jlsgg.com/#news" title="新闻中心"><span>NEWS</span><em>新闻中心</em></a></li>
       <li class="pipe"></li>
-      <li class="mu_contact"><a href="127.0.0.1:3000/#contact" title="联系我们"><span>CONTACT</span><em>联系我们</em></a></li>
+      <li class="mu_contact"><a href="http://www.jlsgg.com/#contact" title="联系我们"><span>CONTACT</span><em>联系我们</em></a></li>
       <li class="back" style="left: 0px;"></li>
     </ul>
   </div>
@@ -176,11 +176,11 @@
             </li>
 
             <li>
-              <a href="http://127.0.0.1:3000/#works">2、百合文化传媒<span>最新案例</span></a>
+              <a href="http://www.jlsgg.com/#works">2、百合文化传媒<span>最新案例</span></a>
             </li>
 
             <li>
-              <a href="http://127.0.0.1:3000/#news">3、最新新闻<span>（了解最新资讯）</span></a>
+              <a href="http://www.jlsgg.com/#news">3、最新新闻<span>（了解最新资讯）</span></a>
             </li>
 
             <!-- end -->
@@ -309,7 +309,7 @@
 
         <li class="con_4">
 
-          <a href="127.0.0.1:3000/#contact"></a>
+          <a href="http://www.jlsgg.com/#contact"></a>
 
           <em></em>
 
@@ -358,7 +358,7 @@
 
             <% @roll.each do |q| %>
                 <li>
-                  <a href="javascript:;" title="Z3视觉互动交流群：253746714" onclick="showwindow(this)" data="<%= my_datetime q.created_at %>">
+                  <a href="javascript:;" title="<%= q.title %>" onclick="showwindow(this)" data="<%= my_datetime q.created_at %>">
                     <%= image_tag q.avatar.url(:index) %><em></em></a>
 
                   <h4><%= q.title %></h4>
@@ -405,7 +405,9 @@
         <div class="srv_pro" id="srv_pro" style="width: 980px;">
           <div class="title"></div>
           <div class="con">
-            <div class="con_1">为客户提供专业化、品牌化的网站界面设计、网站策划、网站建设与研发等。</div>
+            <div class="con_1">百合承接的演出活动有：专场文艺晚会、中秋节晚会、圣诞晚会、元旦晚会、新春音乐会、春节晚会、春晚策划、大型商业演出等。还协
+              助企业策划承办各类礼仪庆典、文艺汇演、宴会、时装秀、车展秀、周年庆、发布会、节日晚会、名流商会、启动典礼、楼盘SHOW等活
+              动。同时，百合还为您提供乐器、音响、舞台、礼仪服装的租赁服务。</div>
             <div class="con_2">为 WINDOWS / MAC / OS / LINUX 等提供个性化的软件界面设计方案。</div>
             <div class="con_3">为移动设备、平板电脑、移动产品等终端提供交互流程及界面设计服务。包括IOS、Android、Win等多平台。</div>
             <div class="con_4">如果您那边是网络公司，如果您希望您的案例能够脱颖而出，那我们像您发出合作邀请，为您提供高质量的网站设计以及开发</div>
@@ -418,7 +420,7 @@
       </div>
     </div>
   </div>
-  <a href="http://127.0.0.1:3000/#" class="top selected"></a>
+  <a href="http://www.jlsgg.com/" class="top selected"></a>
 </div>
 
 <div class="news cl">
@@ -444,7 +446,7 @@
             <% @journalisms.each do |q| %>
                 <li>
 
-                  <a href="javascript:;" title="Z3视觉互动交流群：253746714" onclick="showwindow(this)" data="<%= my_datetime q.created_at %>">
+                  <a href="javascript:;" title="<%= q.title %>" onclick="showwindow(this)" data="<%= my_datetime q.created_at %>">
 
                     <%= image_tag q.avatar.url(:index) %><em></em></a>
 
@@ -475,12 +477,12 @@
 
     <div class="address">长春市南关区解放大路与平阳街交汇吉宇大厦B座</div>
 
-    <div class="weibo">z3web@sinna.com</div>
+    <div class="weibo">2741552116@qq.com</div>
 
-    <div class="tel">13333333333 (张经理)</div>
+    <div class="tel">15504481011 (宋浩然)</div>
 
     <div class="qq">
-      <a href="tencent://message/?uin=315046509&Site=z3%E8%A7%86%E8%A7%89%E4%BA%92%E5%8A%A8&Menu=yes" target="_blank">315046509</a>
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=2741552116&site=qq&menu=yes" target="_blank">2741552116</a>
       (在线咨询)
     </div>
 
@@ -488,7 +490,7 @@
   </div>
 
 
-  <a href="http://127.0.0.1:3000/#" class="top"></a>
+  <a href="http://www.jlsgg.com/" class="top"></a>
 
 </div>
 
